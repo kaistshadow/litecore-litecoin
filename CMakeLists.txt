@@ -15,7 +15,7 @@ DEPENDS ${CMAKE_INSTALL_PREFIX}/plugins/liblitecoind.so
 add_custom_command(OUTPUT ${CMAKE_INSTALL_PREFIX}/plugins/liblitecoind.so
 DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/litecoind
 DEPENDS openssl_1.1.0h
-COMMAND g++ -Wstack-protector -fstack-protector-all -fPIE -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -pthread -Wl,-z -Wl,relro -fPIC -shared -rdynamic -Wl,-z -Wl,now -pie -L/${CMAKE_CURRENT_SOURCE_DIR}/depends/x86_64-unknown-linux-gnu/share/../lib -Wl,-rpath=/${CMAKE_CURRENT_SOURCE_DIR}/Install/openssl_1.1.0h/lib -Wl,-rpath=/${CMAKE_CURRENT_SOURCE_DIR}/Install/bdb_4.8.30/lib -Wl,-rpath=/${CMAKE_CURRENT_SOURCE_DIR}/Install/lib -o liblitecoind.so litecoind-bitcoind.o libbitcoin_server.a libbitcoin_common.a univalue/.libs/libunivalue.a libbitcoin_util.a libbitcoin_wallet.a libbitcoin_zmq.alibbitcoin_consensus.a crypto/libbitcoin_crypto.a leveldb/libleveldb.a leveldb/libmemenv.a secp256k1/.libs/libsecp256k1.a -L/usr/lib/x86_64-linux-gnu -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread -lboost_chrono /usr/lib/libdb_cxx-4.8.so -lssl -lcrypto -lminiupnpc -levent_pthreads -levent -lzmq -pthread
+COMMAND sh -x ../libtool --silent --tag=CXX --mode=link g++ -Wstack-protector -fstack-protector-all -fPIC -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -pthread -fPIC -shared -rdynamic -Wl,-z,relro -Wl,-z,now -pie -L/${CMAKE_CURRENT_SOURCE_DIR}/depends/x86_64-unknown-linux-gnu/share/../lib -Wl,-rpath=/${CMAKE_INSTALL_PREFIX}/openssl_1.1.0h/lib -Wl,-rpath=/${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/lib -Wl,-rpath=/${CMAKE_INSTALL_PREFIX}/lib -o liblitecoind.so litecoind-bitcoind.o -L/${CMAKE_INSTALL_PREFIX}/openssl_1.1.0h/lib  -L/${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/lib libbitcoin_server.a libbitcoin_common.a univalue/libunivalue.la libbitcoin_util.a libbitcoin_wallet.a libbitcoin_consensus.a crypto/libbitcoin_crypto.a leveldb/libleveldb.a leveldb/libmemenv.a secp256k1/libsecp256k1.la -L/usr/lib/x86_64-linux-gnu -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread -lboost_chrono -ldb_cxx-4.8 -lssl -lcrypto -lminiupnpc -levent_pthreads -levent -levent
 COMMAND ${CMAKE_COMMAND} -E copy liblitecoind.so ${CMAKE_INSTALL_PREFIX}/plugins/liblitecoind.so
 COMMAND ${CMAKE_COMMAND} -E copy liblitecoind.so ${CMAKE_INSTALL_PREFIX}/../tests/regtest/shadow-litecoin/liblitecoind.so
 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
@@ -26,8 +26,8 @@ DEPENDS bdb_4.8.30
 DEPENDS ${LITECOIN_SOURCE}
 DEPENDS SHADOW_INTERFACE
 COMMAND ./autogen.sh
-COMMAND ./configure CPPFLAGS='-I${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/include -I${CMAKE_INSTALL_PREFIX}/include' LDFLAGS='-L${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/lib -L${CMAKE_INSTALL_PREFIX}/lib' --with-pic --disable-bench --disable-tests --enable-debug --disable-zmq
-COMMAND make -j 6
+COMMAND ./configure CPPFLAGS='-I${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/include -I${CMAKE_INSTALL_PREFIX}/include' LDFLAGS='-L${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/lib -L${CMAKE_INSTALL_PREFIX}/lib' --with-pic --disable-bench --disable-tests --enable-debug --disable-zmq --disable-wallet
+COMMAND make -j 6 
 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
