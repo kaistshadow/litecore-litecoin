@@ -24,7 +24,7 @@ WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
 add_custom_command(OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/src/litecoind
 DEPENDS bdb_4.8.30
 DEPENDS ${LITECOIN_SOURCE}
-DEPENDS SHADOW_INTERFACE
+#DEPENDS SHADOW_INTERFACE
 COMMAND ./autogen.sh
 COMMAND ./configure CPPFLAGS='-I${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/include -I${CMAKE_INSTALL_PREFIX}/include' LDFLAGS='-L${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/lib -L${CMAKE_INSTALL_PREFIX}/lib' --with-pic --disable-bench --disable-tests --enable-debug --disable-zmq --disable-wallet
 COMMAND make -j 6 
