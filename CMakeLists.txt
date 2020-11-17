@@ -32,10 +32,10 @@ WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # Define targets that can be used in same build-tree
-add_library(litecoin_dev_::Plugin SHARED IMPORTED GLOBAL)
-add_dependencies(litecoin_dev_::Plugin litecoin_dev)
-set_target_properties(litecoin_dev_::Plugin PROPERTIES
-IMPORTED_LINK_INTERFACE_LANGUAGES "C"
-IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/plugins/liblitecoind.so)
+#add_library(litecoin_dev_::Plugin SHARED IMPORTED GLOBAL)
+#add_dependencies(litecoin_dev_::Plugin litecoin_dev)
+#set_target_properties(litecoin_dev_::Plugin PROPERTIES
+#IMPORTED_LINK_INTERFACE_LANGUAGES "C"
+#IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/plugins/liblitecoind.so)
 
 
