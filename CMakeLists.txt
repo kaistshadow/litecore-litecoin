@@ -26,7 +26,7 @@ DEPENDS bdb_4.8.30
 DEPENDS ${LITECOIN_SOURCE}
 #DEPENDS SHADOW_INTERFACE
 COMMAND ./autogen.sh
-COMMAND ./configure CPPFLAGS='-I${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/include -I${CMAKE_INSTALL_PREFIX}/include' LDFLAGS='-L${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/lib -L${CMAKE_INSTALL_PREFIX}/lib' --with-pic --disable-bench --disable-tests --enable-debug --disable-zmq --disable-wallet --with-miniupnpc
+COMMAND ./configure CPPFLAGS='-I${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/include -I${CMAKE_INSTALL_PREFIX}/include' LDFLAGS='-L${CMAKE_INSTALL_PREFIX}/bdb_4.8.30/lib -L${CMAKE_INSTALL_PREFIX}/lib' --with-pic --disable-bench --disable-tests --enable-debug --disable-zmq --disable-wallet --with-miniupnpc --without-miniupnpc
 COMMAND make -j 6 
 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
