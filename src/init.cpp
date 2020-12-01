@@ -1531,6 +1531,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     {
         boost::unique_lock<boost::mutex> lock(cs_GenesisWait);
         while (!fHaveGenesis) {
+            // add yeild logic by hongjoon
             usleep(1);
             condvar_GenesisWait.wait(lock);
         }
