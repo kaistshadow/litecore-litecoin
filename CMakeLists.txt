@@ -19,6 +19,7 @@ COMMAND sh -x ../libtool --silent --tag=CXX --mode=link g++ -Wstack-protector -f
 COMMAND ${CMAKE_COMMAND} -E copy liblitecoind.so ${CMAKE_INSTALL_PREFIX}/plugins/liblitecoind.so
 COMMAND ${CMAKE_COMMAND} -E copy liblitecoind.so ${CMAKE_INSTALL_PREFIX}/../tests/regtest/shadow-litecoin/1_peerConnection/liblitecoind.so
 COMMAND ${CMAKE_COMMAND} -E copy liblitecoind.so ${CMAKE_INSTALL_PREFIX}/../tests/regtest/shadow-litecoin/2_wallet/liblitecoind.so
+COMMAND ${CMAKE_COMMAND} -E copy liblitecoind.so ${CMAKE_INSTALL_PREFIX}/../tests/regtest/shadow-litecoin/3_mining/liblitecoind.so
 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
