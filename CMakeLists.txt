@@ -37,4 +37,3 @@ add_dependencies(LITECOIN__DEV_::Plugin litecoin_dev)
 set_target_properties(LITECOIN__DEV_::Plugin PROPERTIES
 IMPORTED_LINK_INTERFACE_LANGUAGES "C"
 IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/plugins/liblitecoind.so)
-
