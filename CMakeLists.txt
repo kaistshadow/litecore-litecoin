@@ -30,6 +30,7 @@ COMMAND make -j 6
 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+# update
 # Define targets that can be used in same build-tree
 add_library(LITECOIN__DEV_::Plugin SHARED IMPORTED GLOBAL)
 add_dependencies(LITECOIN__DEV_::Plugin litecoin_dev)
