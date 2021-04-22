@@ -4,7 +4,6 @@ CMAKE_INSTALL_PREFIX STREQUAL "/usr/local")
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/../../../Install")
 endif()
 
-
 file(GLOB_RECURSE LITECOIN_SOURCE ${CMAKE_CURRENT_SOURCE_DIR} *.c *.h *.cpp)
 
 add_custom_target(litecoin_dev ALL
